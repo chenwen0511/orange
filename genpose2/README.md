@@ -14,15 +14,17 @@
 
 ## 版本与关键差异
 
-| 项目 | 官方 ModelZoo | 本机（香橙派已验证栈） |
-|------|----------------|------------------------|
-| CANN | 8.3.RC1 | **8.5.0**（见根 README 第 3 章） |
-| 固件与驱动 | 24.1.RC3 | 以 `npu-smi` 显示为准 |
-| Python | 3.10.14 | conda 环境 `genpose2` |
-| PyTorch | 2.1.0 | 与下表 torch_npu 配套安装 |
-| Ascend Extension PyTorch | 2.1.0.post17 | 同上 |
-| SoC 型号（OM 转换） | 300I DUO：`Ascend310P3` | **310P RC：`Ascend310P1`** |
-| `set_env.sh` | `ascend-toolkit/set_env.sh` | **`/usr/local/Ascend/cann-8.5.0/set_env.sh`** |
+
+| 项目                       | 官方 ModelZoo                 | 本机（香橙派已验证栈）                                   |
+| ------------------------ | --------------------------- | --------------------------------------------- |
+| CANN                     | 8.3.RC1                     | **8.5.0**（见根 README 第 3 章）                    |
+| 固件与驱动                    | 24.1.RC3                    | 以 `npu-smi` 显示为准                              |
+| Python                   | 3.10.14                     | conda 环境 `genpose2`                           |
+| PyTorch                  | 2.1.0                       | 与下表 torch_npu 配套安装                            |
+| Ascend Extension PyTorch | 2.1.0.post17                | 同上                                            |
+| SoC 型号（OM 转换）            | 300I DUO：`Ascend310P3`      | **310P RC：`Ascend310P1`**                     |
+| `set_env.sh`             | `ascend-toolkit/set_env.sh` | `**/usr/local/Ascend/cann-8.5.0/set_env.sh**` |
+
 
 说明：支持 Atlas 300I DUO / **310P RC**。本机 `npu-smi` 显示芯片为 **310P1** 时，ONNX→OM 必须使用 `--soc_version Ascend310P1`，不能使用默认的 `Ascend310P3`。
 
@@ -30,10 +32,12 @@
 
 **会有影响，但 CANN 8.5.0 本身不必卸载。** 驱动、固件、`atc`（ONNX→OM）、`ais_bench`（OM 推理）都随本机 CANN 8.5.0 走即可。需要单独处理的是 **conda 里的 `torch` / `torch_npu` 与 GenPosePlus 的固定版本** 之间的错配。
 
-| 来源 | CANN | 官方配套的 PyTorch / torch_npu |
-|------|------|-------------------------------|
-| GenPosePlus `requirements.txt` | **8.3.RC1**（文档） | **2.1.0 / 2.1.0.post17** |
-| [Ascend/pytorch 版本表](https://github.com/Ascend/pytorch/blob/master/README.zh.md) | **8.5.0**（本机） | **2.6.0.post5、2.7.1.post2、2.8.0.post2、2.9.0**（**不含** 2.1.0.post17） |
+
+| 来源                                                                               | CANN            | 官方配套的 PyTorch / torch_npu                                          |
+| -------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------ |
+| GenPosePlus `requirements.txt`                                                   | **8.3.RC1**（文档） | **2.1.0 / 2.1.0.post17**                                           |
+| [Ascend/pytorch 版本表](https://github.com/Ascend/pytorch/blob/master/README.zh.md) | **8.5.0**（本机）   | **2.6.0.post5、2.7.1.post2、2.8.0.post2、2.9.0**（**不含** 2.1.0.post17） |
+
 
 结论：
 
@@ -44,29 +48,33 @@
 
 1. **优先**：conda 环境中仍安装 **torch==2.1.0、torch_npu==2.1.0.post17**（参考 [pies_00006 中 8.3.RC1 章节](https://www.hiascend.com/document/detail/zh/ModelZoo/pytorchframework/pies/pies_00006.html) 的 aarch64 安装命令，勿混用 8.5 章节的 2.6+ wheel）。
 2. 通过阶段 1 自检后，尽早试跑 `python ../export_all_onnx.py`；若报 CANN/torch_npu 版本或算子错误，再考虑：
-   - 在**独立 conda 环境**试 CANN 8.5 配套的 **2.6.0.post5** 并验证导出（GenPose 代码未必兼容，需实测）；
-   - 或按香橙派手册评估是否另装 **CANN 8.3.RC1** 专用于 GenPose（改动大，作备选）。
+  - 在**独立 conda 环境**试 CANN 8.5 配套的 **2.6.0.post5** 并验证导出（GenPose 代码未必兼容，需实测）；
+  - 或按香橙派手册评估是否另装 **CANN 8.3.RC1** 专用于 GenPose（改动大，作备选）。
 
 各阶段对 PyTorch 的依赖：
 
-| 阶段 | 主要依赖 | CANN 8.5 说明 |
-|------|----------|----------------|
-| 阶段 1 自检 | torch_npu | 见上表版本策略 |
-| 阶段 4 ONNX 导出 | torch + torch_npu（NPU） | 最易出现版本冲突 |
-| 阶段 4 OM 转换 | **atc**（CANN toolkit） | 与 8.5.0 一致即可 |
-| 阶段 5 OM 评测 | **ais_bench** + `.om` | 基本不依赖 torch 小版本 |
+
+| 阶段           | 主要依赖                   | CANN 8.5 说明     |
+| ------------ | ---------------------- | --------------- |
+| 阶段 1 自检      | torch_npu              | 见上表版本策略         |
+| 阶段 4 ONNX 导出 | torch + torch_npu（NPU） | 最易出现版本冲突        |
+| 阶段 4 OM 转换   | **atc**（CANN toolkit）  | 与 8.5.0 一致即可    |
+| 阶段 5 OM 评测   | **ais_bench** + `.om`  | 基本不依赖 torch 小版本 |
+
 
 ---
 
 ## 插件与驱动准备
 
-| 配套 | 版本 | 环境准备指导 |
-|------|------|----------------|
-| 固件与驱动 | 24.1.RC3 | [Pytorch 框架推理环境准备](https://www.hiascend.com/document/detail/zh/ModelZoo/pytorchframework/pies) |
-| CANN | 8.3.RC1（文档）/ **8.5.0（本机）** | 含 kernels 与 toolkit；需能使用 `atc` |
-| Python | 3.10.14 | conda |
-| PyTorch | 2.1.0 | 见上文 pies 链接 |
-| Ascend Extension PyTorch | 2.1.0.post17 | 同上 |
+
+| 配套                       | 版本                         | 环境准备指导                                                                                         |
+| ------------------------ | -------------------------- | ---------------------------------------------------------------------------------------------- |
+| 固件与驱动                    | 24.1.RC3                   | [Pytorch 框架推理环境准备](https://www.hiascend.com/document/detail/zh/ModelZoo/pytorchframework/pies) |
+| CANN                     | 8.3.RC1（文档）/ **8.5.0（本机）** | 含 kernels 与 toolkit；需能使用 `atc`                                                                 |
+| Python                   | 3.10.14                    | conda                                                                                          |
+| PyTorch                  | 2.1.0                      | 见上文 pies 链接                                                                                    |
+| Ascend Extension PyTorch | 2.1.0.post17               | 同上                                                                                             |
+
 
 ---
 
@@ -120,7 +128,7 @@ pip install pyyaml decorator scipy psutil "numpy<2" "attrs==21.4.0"
 pip install cloudpickle tornado ml-dtypes
 ```
 
-说明：`attr` 由 **`attrs`** 包提供（GenPose `requirements.txt` 已写 `attrs==21.4.0`）。conda 用用户 **stephen**、CANN 用 **root** 安装是常见组合，属主警告一般可忽略，见上文「CANN 8.5.0 对阶段 1 的影响」。
+说明：`attr` 由 `**attrs**` 包提供（GenPose `requirements.txt` 已写 `attrs==21.4.0`）。conda 用用户 **stephen**、CANN 用 **root** 安装是常见组合，属主警告一般可忽略，见上文「CANN 8.5.0 对阶段 1 的影响」。
 
 **版本安装（CANN 8.5.0 本机 + GenPose 模型要求）：**
 
@@ -150,13 +158,39 @@ PY
 
 通过标准：最后一行打印 `tensor on npu: npu:0` 与 `ok`。
 
-安装 **ais_bench**（OM 推理必需，`om_wrappers.py` 使用 `InferSession`）：
+安装 **ais_bench**（OM 推理与 `export_onnx.py` 导出 score 时必需；`om_wrappers.py` 使用 `InferSession`）：
+
+**注意：** `pip install ais-bench` 在 PyPI 上**无 aarch64 包**，会报 `No matching distribution`。请用下列方式之一。
+
+**方式 A：whl 安装（香橙派 aarch64 + Python 3.10 推荐）**
 
 ```bash
-pip install ais-bench
+source /usr/local/Ascend/cann-8.5.0/set_env.sh
+export CANN_PATH=/usr/local/Ascend/cann-8.5.0
+
+mkdir -p ~/downloads/ais_bench && cd ~/downloads/ais_bench
+wget https://aisbench.obs.myhuaweicloud.com/packet/ais_bench_infer/0.0.2/ait/aclruntime-0.0.2-cp310-cp310-linux_aarch64.whl
+wget https://aisbench.obs.myhuaweicloud.com/packet/ais_bench_infer/0.0.2/ait/ais_bench-0.0.2-py3-none-any.whl
+
+pip install aclruntime-0.0.2-cp310-cp310-linux_aarch64.whl
+pip install ais_bench-0.0.2-py3-none-any.whl
 
 python -c "from ais_bench.infer.interface import InferSession; print('ais_bench OK')"
 ```
+
+**方式 B：从 Gitee 编译安装**（whl 与 CANN 8.5 不兼容时用）
+
+```bash
+git clone https://gitee.com/ascend/tools.git
+cd tools/ais-bench_workload/tool/ais_bench
+pip wheel ./backend/ -v && pip wheel ./ -v
+pip install ./aclruntime-*-cp310-*-linux_aarch64.whl
+pip install ./ais_bench-*-py3-none-any.whl
+```
+
+或新版社区工具：`pip install -v 'git+https://gitee.com/aisbench/inference.git#egg=ais_bench&subdirectory=tools/infer_tool/'`（需网络与编译环境）。
+
+官方说明：[ais_bench 安装指导](https://gitee.com/ascend/tools/tree/master/ais-bench_workload/tool/ais_bench)
 
 ---
 
@@ -208,7 +242,7 @@ onnx==1.20.1
 
 ### 3.1 Omni6DPose 样本（ROPE / 000000）
 
-按 [Omni6DPoseAPI](https://github.com/Omni6DPose/Omni6DPoseAPI) 下载 **ROPE** 分类下的 **`000000`**，在 `$GPPATH`（GenPose2 根目录）下组织为：
+按 [Omni6DPoseAPI](https://github.com/Omni6DPose/Omni6DPoseAPI) 下载 **ROPE** 分类下的 `**000000`**，在 `$GPPATH`（GenPose2 根目录）下组织为：
 
 ```text
 GenPose2/
@@ -259,9 +293,11 @@ test -f configs/config.py && echo "数据与权重就绪"
 ## 阶段 4：导出 ONNX → OM
 
 ```bash
+# root 用户
+source /home/stephen/miniconda3/etc/profile.d/conda.sh
 conda activate genpose2
 source /usr/local/Ascend/cann-8.5.0/set_env.sh
-cd "$GPPATH"
+cd /home/stephen/01-code/Orange/genpose2/genposeplus/ModelZoo-PyTorch/ACL_PyTorch/built-in/embodied_ai/GenPosePlus/GenPose2/
 export PYTHONPATH=$PWD:$PYTHONPATH
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
 
@@ -304,12 +340,81 @@ bash scripts/eval_single_om.sh
 
 ### 验收标准（310P RC）
 
-| 指标 | 参考值 |
-|------|--------|
-| `iou_mean` | **≈ 0.3073** |
-| 性能 | **≈ 803 ms/sample**（single，batch 16） |
+
+| 指标         | 参考值                                  |
+| ---------- | ------------------------------------ |
+| `iou_mean` | **≈ 0.3073**                         |
+| 性能         | **≈ 803 ms/sample**（single，batch 16） |
+
 
 在日志中搜索 `iou` / `iou_mean` 对照。偏差较大时检查：`Ascend310P1`、权重与数据路径、是否已删除 `evaluation_results`。
+
+---
+
+## 香橙派 310P RC 实测结果（Single / OM）
+
+完整终端日志见本目录 [`output.log`](output.log)。以下为 **2026-05-19** 在香橙派 AI Station（CANN **8.5.0**、`Ascend310P1`、`eval_single_om.sh`，`--num_worker 8`）一次跑通记录。
+
+### 运行概况
+
+| 项 | 实测值 |
+|----|--------|
+| 命令 | `bash scripts/eval_single_om.sh` |
+| 数据集 | `omni6dpose-000000/ROPE/`，**291** 张图 |
+| 有效样本数 | **1152**（72 batch × batch_size 16） |
+| OM 加载 | 6 个模型均 `load model ... success` |
+| ACL | 全程无报错，结束 `finalize acl` |
+
+推理分阶段：Score（含 DINOv2 OM 懒加载）→ Energy + PointNet2 → Scale → detect match / calibrate / IoU 评测。
+
+### 精度指标（与官方对照）
+
+| 指标 | 本机实测 | ModelZoo 310P RC 参考 | 结论 |
+|------|----------|------------------------|------|
+| **iou_mean** | **0.3075** | 0.3073 | 一致，**精度验收通过** |
+| iou_acc @0.25 / 0.50 / 0.75 | 0.479 / 0.332 / 0.058 | — | 与参考实现同量级 |
+| deg_mean | 8.78° | — | 旋转误差 |
+| sht_mean | 2.63 cm | — | 平移误差 |
+| pose_acc (5°,2cm) 等 | 0.30～0.53 | — | 见 `output.log` |
+
+官方以 **iou_mean ≈ 0.3073** 为对照；本机 **0.3074888**，偏差约 **0.06%**，可认为 OM 转换与推理链路与文档一致。
+
+### 性能指标（与官方对照）
+
+| 模块 | 本机耗时（均摊 / sample） | 说明 |
+|------|---------------------------|------|
+| Score Network | **639.7 ms** | 含 ODE 采样，占比最高 |
+| Energy Network | 371.6 ms | |
+| Pose Aggregation | 7.7 ms | |
+| Scale Network | 0.09 ms | 统计项含 OM 外逻辑，FPS 虚高可忽略 |
+| **整链合计** | **1019.1 ms** | `Overall Pipeline` |
+
+| 对比项 | 本机 | ModelZoo 310P RC 参考 |
+|--------|------|----------------------|
+| 端到端延迟 | **≈ 1019 ms/sample** | **≈ 803 ms/sample** |
+| 相对参考 | 约慢 **+27%** | — |
+
+总墙钟时间约 **1174 s**（1152 sample）。慢于参考的常见原因：香橙派内存/CPU、`num_worker`、首次 OM 加载、CANN 8.5 + torch_npu post13 非官方 8.3 配套、板级散热降频等；**不影响精度结论**。
+
+### 日志摘录（关键行）
+
+```text
+291 images found.
+✓ OM model loaded successfully          # scorenet / pointnet2 / dinov2 / energynet / scalenet
+score sampling: 100%|...| 72/72 [12:28<00:00, 10.39s/it]
+energy: 100%|...| 72/72 [07:18<00:00,  6.08s/it]
+iou_mean: 0.3074888382282065
+Overall Pipeline:
+  Total samples: 1152
+  Avg latency per sample: 1019.07ms
+[INFO] end to finalize acl
+```
+
+### 结论
+
+1. **功能**：GenPosePlus Single + OM 在香橙派 310P RC 上 **端到端跑通**。
+2. **精度**：`iou_mean` 与官方 **0.3073 对齐**，无需为精度降级 CANN。
+3. **性能**：端到端约 **1.02 s/帧**，高于文档 **803 ms** 约两成；若需优化，可试 `--num_worker`、散热、固定频率，或 profiling Score/DINO 阶段（占时最长）。
 
 ---
 
@@ -325,12 +430,14 @@ python ../export_all_om.py --batch_size 4 --soc_version Ascend310P1
 bash scripts/eval_tracking_om.sh
 ```
 
-| 芯片 | 模式 | batch | iou_mean 参考 | 性能参考 (ms/sample) |
-|------|------|-------|---------------|----------------------|
-| 300I DUO | single | 16 | 0.3073 | 652.20 |
-| 300I DUO | tracking | 4 | 0.3038 | 458.37 |
-| **310P RC** | single | 16 | **0.3073** | **803.23** |
-| **310P RC** | tracking | 4 | **0.3036** | **488.15** |
+
+| 芯片          | 模式       | batch | iou_mean 参考 | 性能参考 (ms/sample) |
+| ----------- | -------- | ----- | ----------- | ---------------- |
+| 300I DUO    | single   | 16    | 0.3073      | 652.20           |
+| 300I DUO    | tracking | 4     | 0.3038      | 458.37           |
+| **310P RC** | single   | 16    | **0.3073**  | **803.23**       |
+| **310P RC** | tracking | 4     | **0.3036**  | **488.15**       |
+
 
 **注意：** 非首次推理前须删除缓存，例如：
 
@@ -356,28 +463,24 @@ rm -rf "$GPPATH/results/evaluation_results"
 
 1. **`git apply ../diff.patch` 失败**  
    需在干净 checkout 的 `d0993c0` 上执行；已打过补丁不要重复 apply。
-
-2. **CANN 8.5 vs 文档 8.3（阶段 1）**  
-   CANN 8.5.0 可保留；**torch_npu 仍建议按 8.3.RC1 文档装 2.1.0.post17** 以满足 GenPosePlus。若 `import torch_npu` 或 `export_all_onnx.py` 报版本/算子错误，见上文「CANN 8.5.0 对阶段 1 的影响」中的备选策略，勿在未实测前直接把 torch 升到 8.5 默认的 2.6+ 并覆盖 `requirements.txt`。
-
-3. **SoC 版本**  
-   - Atlas 300I DUO：`Ascend310P3`（`export_all_om.py` 默认值）  
-   - **310P RC：`Ascend310P1`（必显式指定）**
-
+2. **CANN 8.5 vs 文档 8.3（阶段 1）**
+  CANN 8.5.0 可保留；**torch_npu 仍建议按 8.3.RC1 文档装 2.1.0.post17** 以满足 GenPosePlus。若 `import torch_npu` 或 `export_all_onnx.py` 报版本/算子错误，见上文「CANN 8.5.0 对阶段 1 的影响」中的备选策略，勿在未实测前直接把 torch 升到 8.5 默认的 2.6+ 并覆盖 `requirements.txt`。
+3. **SoC 版本**
+  - Atlas 300I DUO：`Ascend310P3`（`export_all_om.py` 默认值）  
+  - **310P RC：`Ascend310P1`（必显式指定）**
 4. **`../requirements.txt` 不存在**  
    仓库中可能无 `embodied_ai/requirements.txt`，忽略该 pip 步骤即可。
-
-5. **磁盘不足**  
-   数据集 + ONNX + OM 占用较大。根分区紧张时将 `WORK`、`TMPDIR` 指到 NVMe 数据盘（见根 README 第 2 章）。
-
-6. **GitHub 克隆慢**  
-   `GenPose2` 可在 PC 下载后 `scp` 到板子，或使用镜像。
-
+5. **磁盘不足**
+  数据集 + ONNX + OM 占用较大。根分区紧张时将 `WORK`、`TMPDIR` 指到 NVMe 数据盘（见根 README 第 2 章）。
+6. **GitHub 克隆慢**
+  `GenPose2` 可在 PC 下载后 `scp` 到板子，或使用镜像。
 7. **`ascend-dmi` 交互**  
    非交互测试用 `echo Y | ascend-dmi ...`；测试结束回到 shell 后**不要**再单独输入 `Y`（见根 README 3.3）。
+8. **`pip install ais-bench` 失败**  
+   PyPI 无 aarch64 包，见阶段 1「方式 A：whl 安装」。
 
 ---
 
 ## 模型概述（摘自官方）
 
-GenPose++ 采用分段点云与裁剪 RGB 作为输入：PointNet++ 提取几何特征，DINO v2 提取语义特征，融合后作为扩散模型条件生成姿态候选与能量；对非连续对称物体通过聚类处理多模态分布。
+GenPose++采用分段点云与裁剪 RGB 作为输入：PointNet++ 提取几何特征，DINO v2 提取语义特征，融合后作为扩散模型条件生成姿态候选与能量；对非连续对称物体通过聚类处理多模态分布。
