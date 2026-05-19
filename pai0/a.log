@@ -1,0 +1,188 @@
+root@orangepi:~/cann-recipes-embodied-intelligence/manipulation/pi0/infer_with_om# /root/replace.sh
+root@orangepi:~/cann-recipes-embodied-intelligence/manipulation/pi0/infer_with_om# python ./run_om_e2e.py --vlm-model-path /models/pi0/outputs/om/pi0_vlm.om --action-expert-model-path /models/pi0/outputs/om/pi0_action_expert_linux_aarch64.om
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:19.748.849 [task_fail_callback_data_manager.cc:88] 1165 TaskFailCallBackManager: Constructor.
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:19.894.849 [msprof_callback_impl.cpp:383] >>> (tid:1165) Started to register profiling ctrl callback.
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:19.895.377 [msprof_callback_impl.cpp:390] >>> (tid:1165) Started to register profiling hash id callback.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.895.534 [prof_atls_plugin.cpp:117] (tid:1165) RegisterProfileCallback, callback type is 7
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:19.895.659 [msprof_callback_impl.cpp:397] >>> (tid:1165) Started to register profiling enable host freq callback.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.895.778 [prof_atls_plugin.cpp:117] (tid:1165) RegisterProfileCallback, callback type is 8
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:19.895.915 [msprof_callback_impl.cpp:404] >>> (tid:1165) Started to register profiling typeId callback.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.896.028 [prof_atls_plugin.cpp:117] (tid:1165) RegisterProfileCallback, callback type is 6
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.906.198 [prof_atls_plugin.cpp:230] (tid:1165) Module[48] register callback of ctrl handle.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.906.869 [prof_atls_plugin.cpp:230] (tid:1165) Module[48] register callback of ctrl handle.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:19.967.738 [runtime_keeper.cc:158] 1165 CreateRuntimeImpl: Open libruntime_v100.so successfully
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:19.968.137 [runtime.cc:5515] 1165 GetVisibleDevices: ASCEND_RT_VISIBLE_DEVICES param was not set
+[INFO] TDT(1165,python):2026-05-18-22:44:19.971.567 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[4] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.971.840 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[6] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.001 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[5] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.133 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[0] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.252 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[1] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.362 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[8] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.483 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[2] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.599 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[3] package worker was created successfully
+[INFO] TDT(1165,python):2026-05-18-22:44:19.972.735 [package_worker_factory.cpp:39][RegisterPackageWorkerCreator][tid:1165] Register[9] package worker was created successfully
+[INFO] PROFILING(1165,python):2026-05-18-22:44:19.973.034 [prof_atls_plugin.cpp:230] (tid:1165) Module[7] register callback of ctrl handle.
+2026-05-18 22:44:26,536 INFO __main__: Initializing ACL...
+[INFO] PROFILING(1165,python):2026-05-18-22:44:26.557.463 [prof_atls_plugin.cpp:230] (tid:1165) Module[45] register callback of ctrl handle.
+[INFO] GE(1165,python):2026-05-18-22:44:26.933.411 [ge_call_wrapper.h:109]1165 ~FuncPerfScope:[GEPERFTRACE] The time cost of OpTilingManager::LoadSo is [375491] micro seconds.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:27.633.205 [prof_atls_plugin.cpp:230] (tid:1165) Module[61] register callback of ctrl handle.
+[INFO] PROFILING(1165,python):2026-05-18-22:44:28.583.798 [prof_atls_plugin.cpp:230] (tid:1165) Module[48] register callback of ctrl handle.
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:28.584.104 [msprof_callback_impl.cpp:111] >>> (tid:1165) MsprofCtrlCallback called, type: 255
+[EVENT] PROFILING(1165,python):2026-05-18-22:44:28.584.595 [ai_drv_dev_api.cpp:333] >>> (tid:1165) Succeeded to DrvGetApiVersion version: 0x72317
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.585.109 [acl.cpp:265]1165 GetAllPackageVersion: Version of runtime package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.585.343 [acl.cpp:265]1165 GetAllPackageVersion: Version of runtime package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.585.546 [acl.cpp:265]1165 GetAllPackageVersion: Version of bisheng-compiler package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.585.739 [acl.cpp:265]1165 GetAllPackageVersion: Version of hccl package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.585.961 [acl.cpp:265]1165 GetAllPackageVersion: Version of oam-tools package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.586.176 [acl.cpp:265]1165 GetAllPackageVersion: Version of ops-legacy package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.586.387 [acl.cpp:265]1165 GetAllPackageVersion: Version of ops-legacy package is 8.5.0
+[INFO] ASCENDCL(1165,python):2026-05-18-22:44:28.586.510 [acl.cpp:267]1165 GetAllPackageVersion: Version of driver package is not found
+[INFO] TDT(1165,python):2026-05-18-22:44:28.586.941 [client_manager.cpp:495][GetClientRunMode][tid:1165] runMode:0
+[INFO] TDT(1165,python):2026-05-18-22:44:28.587.073 [client_manager.cpp:133][GetInstance][tid:1165] [ClientManager] Current mode:2
+[INFO] TDT(1165,python):2026-05-18-22:44:28.587.237 [thread_mode_manager.cpp:70][Open][tid:1165] [ThreadModeManager] enter into open process deviceId[0] rankSize[0]
+[INFO] TDT(1165,python):2026-05-18-22:44:28.587.954 [client_manager.cpp:290][CheckPackageExistsOnce][tid:1165] [TsdClient][deviceId=0] set package path[/usr/local/Ascend/cann-8.5.0/opp/Ascend310P/aicpu/], package name[Ascend310P-aicpu_syskernels.tar.gz], packageType[0]
+[INFO] TDT(1165,python):2026-05-18-22:44:28.588.629 [client_manager.cpp:290][CheckPackageExistsOnce][tid:1165] [TsdClient][deviceId=0] set package path[/usr/local/Ascend/cann-8.5.0/opp/Ascend310P/aicpu/], package name[Ascend310P-aicpu_extend_syskernels.tar.gz], packageType[1]
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.092 [client_manager.cpp:279][CheckPackageExistsOnce][tid:1165] [TsdClient][deviceId=0] pkg size[0] in path[/usr/local/Ascend/cann-8.5.0/opp/built-in/] must be only one, skip send package, packageType[6]
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.260 [aicpu_thread_package_worker.cpp:27][AicpuThreadPackageWorker][tid:1165] Start init AicpuThreadPackageWorker. Package worker parameters, deviceId=0, vfId=0
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.528 [aicpu_thread_package_worker.cpp:132][OpenVerifyFile][tid:1165] Create verify file end, path=/root/aicpu_package_install.info, reason=File exists
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.665 [aicpu_thread_package_worker.cpp:141][OpenVerifyFile][tid:1165] Create or open verify file success, path=/root/aicpu_package_install.info
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.828 [aicpu_thread_package_worker.cpp:27][AicpuThreadPackageWorker][tid:1165] Start init AicpuThreadPackageWorker. Package worker parameters, deviceId=0, vfId=0
+[INFO] TDT(1165,python):2026-05-18-22:44:28.589.956 [aicpu_thread_package_worker.cpp:61][ExtendThreadPackageWorker][tid:1165] Start init ExtendThreadPackageWorker. Package worker parameters, deviceId=0, vfId=0
+[INFO] TDT(1165,python):2026-05-18-22:44:28.590.191 [aicpu_thread_package_worker.cpp:132][OpenVerifyFile][tid:1165] Create verify file end, path=/root/extend_aicpu_package_install.info, reason=File exists
+[INFO] TDT(1165,python):2026-05-18-22:44:28.590.327 [aicpu_thread_package_worker.cpp:141][OpenVerifyFile][tid:1165] Create or open verify file success, path=/root/extend_aicpu_package_install.info
+[INFO] TDT(1165,python):2026-05-18-22:44:28.723.276 [thread_mode_manager.cpp:158][SetAICPUProfilingCallback][tid:1165] [ThreadModeManager] profiling callback is nullptr, skip set aicpu profiling callback
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.723.569 [aicpusd_interface_process.cpp:652][TryGetLogLevelFromParentProcess][tid:1165] get ASCEND_GLOBAL_LOG_LEVEL [] and ASCEND_GLOBAL_EVENT_ENABLE []
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.723.975 [aicpusd_interface_process.cpp:586][GetCurrentRunMode][tid:1165] Current aicpu mode is offline (call by api).
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.140 [aicpusd_drv_manager.cpp:321][InitSocType][tid:1165] Soc type is 0
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.292 [aicpusd_drv_manager.cpp:175][GetNormalAicpuInfo][tid:1165] aicpuBitMap[32768], aicpuNum[1].
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.425 [aicpusd_drv_manager.cpp:209][GetCcpuInfo][tid:1165] ccpuBitMap[32767].
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.582 [aicpusd_drv_manager.cpp:95][GetNormalAicpuDCpuInfo][tid:1165] GetNormalAicpuDCpuInfo, deviceId[0], aicpu_num[1], aicpu_os_sched[1], ccpu_num[15], ccpu_os_sched[1], dcpu_num[0], dcpu_os_sched[1], tscpu_num[0], tscpu_os_sched[0].
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.702 [aicpusd_drv_manager.cpp:292][InitDrvMgrCaluniqueVfId][tid:1165] InitDrvMgr uniqueVfId=0, deviceId=0
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.724.813 [aicpusd_drv_manager.cpp:372][InitDrvMgr][tid:1165] host pid[1165], host proc name[], vf id[0], first aicpu index[0], aicpu num[1], dcpu base index[15], dcpu num[0].
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.725.001 [aicpusd_drv_manager.cpp:562][BindHostPid][tid:1165] Bind host pid success, hostPid=1165, vfId=0, mode=1
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.725.185 [aicpusd_drv_manager.cpp:562][BindHostPid][tid:1165] Bind host pid success, hostPid=1165, vfId=0, mode=1
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.725.359 [aicpusd_resource_manager.cpp:264][InitBufManager][tid:1165] Aicpu schedule SetBuffCfg successfully!
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.725.989 [aicpusd_drv_manager.cpp:441][InitDrvSchedModule][tid:1165] Enable process drv queue msg on ccpu, ret is 0.
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.732.758 [aicpusd_worker.cpp:70][ThreadPool][tid:1165] ThreadPool
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.733.279 [aicpusd_worker.cpp:270][AddPidToTask][tid:1183] Bind pid by hal.
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.733.989 [aicpusd_threads_process.cpp:81][LoadExtendKernelSo][tid:1165] Start to preload extend kernel so.
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.738.511 [aicpusd_threads_process.cpp:85][LoadExtendKernelSo][tid:1165] End to preload extend kernel so.
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.739.001 [aicpusd_period_statistic.cpp:132][SetThreadAffinity][tid:1185] aicpu bind by self success
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.739.083 [aicpusd_cust_so_manager.cpp:75][InitAicpuCustSoManager][tid:1165] Cust so manager init success, dir=/root/cust_aicpu_0_0_1165/, runMode=2, schedMode=0
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:28.755.208 [raw_device.cc:534] 1165 Init: isAddrFlat:0
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:28.755.496 [engine.cc:78] 1165 Engine: Constructor.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:28.755.664 [direct_hwts_engine.cc:56] 1165 DirectHwtsEngine: Constructor.
+[INFO] DRV(1165,python):2026-05-18-22:44:28.756.293 [grp_mng.c:81][bufmng] [halGrpCreate 81] Create grp. (grp_name=private_buff_grp_1165; grp_id=14; max_size=0; cache_flag=0)
+[INFO] DRV(1165,python):2026-05-18-22:44:28.756.485 [grp_mng.c:144][bufmng] [halGrpAddProc 144] add grp succ, name:private_buff_grp_1165, pid:1165, grp_id:14, admin:1 alloc:1 read:1 write:1
+[INFO] DRV(1165,python):2026-05-18-22:44:28.756.754 [buff_recycle.c:761][bufmng] [procMngInit 761] poolId 14 add task node uid 15 pid 1165
+[INFO] DRV(1165,python):2026-05-18-22:44:28.756.905 [drv_buff_mbuf.c:65][bufmng] [mbufSetPrivFlag 65] Set mbuf priv flag success. (flag=0, g_mbuf_priv_flag=0)
+[INFO] DRV(1165,python):2026-05-18-22:44:28.757.027 [grp_mng.c:212][bufmng] [halGrpAttach 212] grp attach, grp_name:private_buff_grp_1165, grp_id:14, timeout:1000ms
+[INFO] DRV(1165,python):2026-05-18-22:44:28.757.142 [drv_buff_memzone.c:499][bufmng] [memzone_cfg 499] BuffCfg success. (cfg num=4; huge_prior=393216; normal=393216; huge_only=393216; dvpp_huge_prior=393216; dvpp_normal=393216; dvpp_huge_only=393216)
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:28.763.932 [npu_driver.cc:6898] 1187 GetDeviceStatus: GetDeviceStatus status=1.
+[INFO] TDT(1165,python):2026-05-18-22:44:28.767.490 [client_manager.cpp:203][SetProfilingCallback][tid:1165] [TsdClient] set profiling callback successfully
+2026-05-18 22:44:28,773 INFO __main__: ACL Initialized.
+2026-05-18 22:44:28,774 INFO __main__: Load Pi0 model
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.776.638 [ae_so_manager.cc:657][CreateSingleSoMgr][tid:1183][AICPU_PROCESSER] So not exist, try to load at another path. currentSoFile=/root/aicpu_kernels/0/aicpu_kernels_device/libdvpp_kernels.so.
+[EVENT] AICPU(1165,python):2026-05-18-22:44:28.778.068 [dvpp_kernel_constructor.cpp:13][DvppSoInit][tid:1183][DVPP_KERNELS] Start initialize dvpp kernel so
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.778.484 [ae_so_manager.cc:228][GetApi][tid:1183][AICPU_PROCESSER] Get api DvppGetVersion from so libdvpp_kernels.so success.
+[EVENT] AICPU(1165,python):2026-05-18-22:44:28.778.680 [dvpp_get_version_kernels.cc:45][DoCompute][tid:1183][DVPP_KERNELS] Kernel:DvppGetVersion get version success, version=200002.
+[INFO] CCECPU(1165,python):2026-05-18-22:44:28.779.799 [ae_so_manager.cc:228][GetApi][tid:1183][AICPU_PROCESSER] Get api DvppCreateChannel from so libdvpp_kernels.so success.
+2026-05-18 22:44:28,791 INFO __main__: Load Paligemma model
+[INFO]  Init model resource start...
+[INFO] GE(1165,python):2026-05-18-22:44:56.283.749 [davinci_model.cc:627]1165 InitFeatureMapAndP2PMem:[IMAS]InitFeatureMapAndP2PMem graph_0 MallocMemory type[F] memaddr[0xe80151600200] mem_size[84478976]Bytes
+[INFO] GE(1165,python):2026-05-18-22:44:56.402.884 [davinci_model.cc:1816]1165 InitNodes:[GEPERFTRACE] The time cost of GraphLoader::InitTbeHandle is [41673] micro seconds, call count is 2763
+[INFO] GE(1165,python):2026-05-18-22:44:56.403.194 [davinci_model.cc:1817]1165 InitNodes:[GEPERFTRACE] The time cost of DavinciModel::InitNodes is [77300] micro seconds.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:56.403.350 [api_error.cc:3177] 1165 ModelBindStream: model_id=0, stream_id=7, model_name=pi0_vlm, flag=0, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:56.403.533 [api_error.cc:3177] 1165 ModelBindStream: model_id=0, stream_id=6, model_name=pi0_vlm, flag=0, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:56.403.681 [api_error.cc:3177] 1165 ModelBindStream: model_id=0, stream_id=4, model_name=pi0_vlm, flag=0, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:44:56.403.838 [api_error.cc:3177] 1165 ModelBindStream: model_id=0, stream_id=5, model_name=pi0_vlm, flag=0, group_id=255.
+[INFO] GE(1165,python):2026-05-18-22:44:57.152.971 [davinci_model.cc:1267]1165 PrintfModelProfOfModelLoad:[GEPERFTRACE] The time cost of GraphLoader::DavinciModel::Init is [12301219] micro seconds, name[pi0_vlm]model_id[1]graph_id[0].
+[INFO]  AclLiteModel create model output dataset:
+[INFO]  malloc output 0, size 5603328
+[INFO]  malloc output 1, size 304
+[INFO]  Create model output dataset success
+[INFO]  Init model resource success
+2026-05-18 22:44:58,449 INFO __main__: Load Gemma model
+[INFO]  Init model resource start...
+[INFO] GE(1165,python):2026-05-18-22:45:03.806.963 [model_converter.cc:488]1165 CollectAndReserveStreamResource:Model pi0_action_expert require reusable stream num is 1, attached stream num is 0, event num is 0, notify num is 0.
+[INFO] GE(1165,python):2026-05-18-22:45:04.605.548 [graph_converter.cc:870]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::CreateMainNode is [152784] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.613.293 [base_optimizer.cc:76]1165 Run:[GEPERFTRACE] The time cost of ZeroCopy is [2400] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.618.813 [base_optimizer.cc:76]1165 Run:[GEPERFTRACE] The time cost of CEM is [5242] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.621.422 [copy_flow_launch_fuse.cc:528]1165 Run:[GEPERFTRACE] The time cost of Pass::CopyFlowLaunchFuse is [2346] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.626.650 [copy_flow_launch_fuse.cc:528]1165 Run:[GEPERFTRACE] The time cost of Pass::CopyFlowLaunchFuse is [2102] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.626.937 [graph_converter.cc:886]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::RunAllPass is [16062] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.638.578 [graph_converter.cc:890]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::TopologicalSorting is [11450] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.641.504 [graph_converter.cc:898]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::CalculatePriority is [1514] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.724.970 [graph_converter.cc:902]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::AppendGraphLevelData is [83197] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.726.770 [graph_converter.cc:907]1165 ConvertComputeGraphToExecuteGraph:[GEPERFTRACE] The time cost of ConvertComputeGraphToExecuteGraph::All is [274470] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.756.987 [model_v2_executor_builder.cc:98]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::UpdateEquivalentEdges is [28345] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.758.557 [model_v2_executor_builder.cc:101]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::AllocRootGraphAnyValues is [956] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.759.355 [model_v2_executor_builder.cc:105]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::ReadInBuffer is [517] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.760.570 [model_v2_executor_builder.cc:110]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::ReadInComputeNodeInfo is [1058] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.761.220 [model_v2_executor_builder.cc:115]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::ReadInKernelExtendInfo is [478] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.761.497 [model_v2_executor_builder.cc:120]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::ReadInModelDesc is [106] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.807.995 [model_v2_executor_builder.cc:140]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::BuildGraph is [46364] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.814.215 [model_v2_executor_builder.cc:156]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::SubscribersSchedulerInit is [578] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.814.479 [model_v2_executor_builder.cc:157]1165 Build:[GEPERFTRACE] The time cost of ModelV2ExecutorBuilderBuild::All is [86259] micro seconds.
+[INFO] GE(1165,python):2026-05-18-22:45:04.820.637 [scalable_config.cc:74]1165 ScalableConfig:device total max size: 93963599872, page_mem_size_total_threshold: 89265419878, uncacheable_size_threshold: 34359738368
+[INFO] GE(1165,python):2026-05-18-22:45:04.876.193 [davinci_model.cc:1816]1165 InitNodes:[GEPERFTRACE] The time cost of GraphLoader::InitTbeHandle is [5] micro seconds, call count is 5
+[INFO] GE(1165,python):2026-05-18-22:45:04.876.470 [davinci_model.cc:1817]1165 InitNodes:[GEPERFTRACE] The time cost of DavinciModel::InitNodes is [372] micro seconds.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:04.876.612 [api_error.cc:3177] 1165 ModelBindStream: model_id=1, stream_id=9, model_name=pi0_action_expert_sub_1_know, flag=0, group_id=255.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:05.116.513 [tf_adpt_session_mgr.cc:394][CreateSession][tid:1183][TFAdapter] [sessionID:9223372036854775808] Create session success.
+[INFO] GE(1165,python):2026-05-18-22:45:05.120.737 [davinci_model.cc:1267]1165 PrintfModelProfOfModelLoad:[GEPERFTRACE] The time cost of GraphLoader::DavinciModel::Init is [246615] micro seconds, name[pi0_action_expert_sub_1_know]model_id[2]graph_id[0].
+[INFO] GE(1165,python):2026-05-18-22:45:05.234.938 [davinci_model.cc:1816]1165 InitNodes:[GEPERFTRACE] The time cost of GraphLoader::InitTbeHandle is [28624] micro seconds, call count is 1359
+[INFO] GE(1165,python):2026-05-18-22:45:05.235.263 [davinci_model.cc:1817]1165 InitNodes:[GEPERFTRACE] The time cost of DavinciModel::InitNodes is [51501] micro seconds.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:05.235.419 [api_error.cc:3177] 1165 ModelBindStream: model_id=2, stream_id=10, model_name=pi0_action_expert_sub_3_know, flag=0, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:05.235.611 [api_error.cc:3177] 1165 ModelBindStream: model_id=2, stream_id=11, model_name=pi0_action_expert_sub_3_know, flag=0, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:05.235.764 [api_error.cc:3177] 1165 ModelBindStream: model_id=2, stream_id=12, model_name=pi0_action_expert_sub_3_know, flag=0, group_id=255.
+[INFO] GE(1165,python):2026-05-18-22:45:05.712.414 [davinci_model.cc:1267]1165 PrintfModelProfOfModelLoad:[GEPERFTRACE] The time cost of GraphLoader::DavinciModel::Init is [584681] micro seconds, name[pi0_action_expert_sub_3_know]model_id[2]graph_id[0].
+[INFO]  AclLiteModel create model output dataset:
+[INFO]  malloc output 0, size 3200
+[INFO]  Create model output dataset success
+[INFO]  Init model resource success
+2026-05-18 22:45:05,901 INFO __main__: Generate new action sequence
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:05.906.163 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[INFO] CCECPU(1165,python):2026-05-18-22:45:05.988.933 [ae_so_manager.cc:228][GetApi][tid:1183][AICPU_PROCESSER] Get api RunCpuKernel from so libcpu_kernels.so success.
+2026-05-18 22:45:06,098 INFO __main__: [TIMER] VLM interface time: 0.019 s
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.101.589 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.129.087 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.144.098 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.159.128 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.174.300 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.189.197 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.204.067 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.219.029 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.234.248 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+[ERROR] ASCENDCL(1165,python):2026-05-18-22:45:06.249.128 [model.cpp:1300]1165 aclmdlGetIndexByName:[Get][Index]get index by name failed, cannot find tensor name[ascend_mbatch_shape_data]
+2026-05-18 22:45:06,273 INFO __main__: Selected action: tensor([-0.0019, -0.4214,  0.2909, -0.0040, -0.0059,  0.3742, -0.1480,  0.0181,
+        -0.2360,  0.1086,  0.0075,  0.5540,  0.0176,  0.1935])
+2026-05-18 22:45:06,278 INFO __main__: Releasing ACL...
+[INFO] CCECPU(1165,python):2026-05-18-22:45:06.279.291 [ae_so_manager.cc:228][GetApi][tid:1183][AICPU_PROCESSER] Get api DvppDestroyChannel from so libdvpp_kernels.so success.
+[INFO]  dvpp resource release success
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:06.287.047 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=0, stream_id=7, model_name=pi0_vlm, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:06.293.652 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=0, stream_id=6, model_name=pi0_vlm, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:06.293.961 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=0, stream_id=5, model_name=pi0_vlm, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:06.294.219 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=0, stream_id=4, model_name=pi0_vlm, group_id=255.
+[INFO] GE(1165,python):2026-05-18-22:45:06.301.015 [davinci_model.cc:8479]1165 LogModelDevMemInfo:model_metrics:name=pi0_vlm, alloc_dev_mem=5722024448 B, shared_dev_mem=0 B, device_id=0, rts_model_id=0
+[INFO]  AclLiteModel release source success
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.243.340 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=1, stream_id=9, model_name=pi0_action_expert_sub_1_know, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.249.927 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=2, stream_id=10, model_name=pi0_action_expert_sub_3_know, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.254.768 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=2, stream_id=11, model_name=pi0_action_expert_sub_3_know, group_id=255.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.259.226 [api_error.cc:3196] 1165 ModelUnbindStream: model_id=2, stream_id=12, model_name=pi0_action_expert_sub_3_know, group_id=255.
+[INFO] GE(1165,python):2026-05-18-22:45:10.268.238 [davinci_model.cc:8479]1165 LogModelDevMemInfo:model_metrics:name=pi0_action_expert_sub_1_know, alloc_dev_mem=1024 B, shared_dev_mem=0 B, device_id=0, rts_model_id=1
+[INFO] GE(1165,python):2026-05-18-22:45:10.275.425 [davinci_model.cc:8479]1165 LogModelDevMemInfo:model_metrics:name=pi0_action_expert_sub_3_know, alloc_dev_mem=1024 B, shared_dev_mem=0 B, device_id=0, rts_model_id=2
+[INFO]  AclLiteModel release source success
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.698.831 [direct_hwts_engine.cc:72] 1165 ~DirectHwtsEngine: Destructor.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:10.702.050 [engine.cc:84] 1165 ~Engine: Destructor.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:10.704.841 [aicpusd_cust_so_manager.cpp:445][DeleteCustSoDir][tid:1165] Access cust so dir /root/cust_aicpu_0_0_1165/ not success, reason is No such file or directory.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:10.705.026 [dump_task.cpp:1942][ClearResource][tid:1165] clear all resource of data dump
+[INFO] CCECPU(1165,python):2026-05-18-22:45:10.705.160 [aicpusd_interface.cpp:233][StopAICPUScheduler][tid:1165] Success to stop aicpu scheduler, deviceId[0], hostPid[1165].
+2026-05-18 22:45:10,705 INFO __main__: ACL Released.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:12.567.296 [aicpusd_period_statistic.cpp:72][DoStatistic][tid:1185] DoStatistic running over
+[INFO] CCECPU(1165,python):2026-05-18-22:45:12.568.151 [aicpusd_worker.cpp:164][WaitForStop][tid:1165] WaitForStop begin.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:15.596.506 [aicpusd_worker.cpp:170][WaitForStop][tid:1165] WaitForStop end.
+[INFO] CCECPU(1165,python):2026-05-18-22:45:15.665.542 [aicpusd_mpi_mgr.cpp:48][PrintStatisticInfo][tid:1165] Mpi Dvpp event statistic: [0]
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:16.461.727 [runtime.cc:1640] 1165 ~Runtime: runtime destructor.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:16.463.854 [runtime.cc:1728] 1165 WaitMonitorExit: wait monitor success, used count=0.
+[INFO] RUNTIME(1165,python):2026-05-18-22:45:16.477.778 [task_fail_callback_data_manager.cc:93] 1165 ~TaskFailCallBackManager: Destructor.
+[EVENT] AICPU(1165,python):2026-05-18-22:45:16.919.901 [dvpp_kernel_constructor.cpp:20][DvppSoFini][tid:1165][DVPP_KERNELS] Start finalize dvpp kernel so
