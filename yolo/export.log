@@ -1,0 +1,60 @@
+
+(genpose2) [root@orangepi yolo]# yolo export model=yolov10m.pt format=onnx opset=11 simplify
+Creating new Ultralytics Settings v0.0.6 file ✅
+View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+Downloading https://github.com/ultralytics/assets/releases/download/v8.4.0/yolov10m.pt to 'yolov10m.pt': 100% ━━━━━━━━━━━━ 32.1MB 108.3KB/s 5:03
+Ultralytics 8.4.51 🚀 Python-3.10.14 torch-2.1.0 CPU (aarch64)
+YOLOv10m summary (fused): 135 layers, 15,359,488 parameters, 0 gradients, 59.1 GFLOPs
+
+PyTorch: starting from 'yolov10m.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 300, 6) (32.1 MB)
+requirements: Ultralytics requirements ['onnxslim>=0.1.71', 'onnxruntime'] not found, attempting AutoUpdate...
+Collecting onnxslim>=0.1.71
+  Downloading onnxslim-0.1.93-py3-none-any.whl.metadata (10 kB)
+Collecting onnxruntime
+  Downloading onnxruntime-1.23.2-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (5.1 kB)
+Collecting colorama (from onnxslim>=0.1.71)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: ml-dtypes in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxslim>=0.1.71) (0.5.4)
+Requirement already satisfied: onnx in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxslim>=0.1.71) (1.20.1)
+Requirement already satisfied: packaging in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxslim>=0.1.71) (26.0)
+Requirement already satisfied: sympy>=1.13.1 in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxslim>=0.1.71) (1.14.0)
+Collecting coloredlogs (from onnxruntime)
+  Downloading coloredlogs-15.0.1-py2.py3-none-any.whl.metadata (12 kB)
+Collecting flatbuffers (from onnxruntime)
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+Requirement already satisfied: numpy>=1.21.6 in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxruntime) (1.26.3)
+Requirement already satisfied: protobuf in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnxruntime) (4.25.9)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from sympy>=1.13.1->onnxslim>=0.1.71) (1.3.0)
+Collecting humanfriendly>=9.1 (from coloredlogs->onnxruntime)
+  Downloading humanfriendly-10.0-py2.py3-none-any.whl.metadata (9.2 kB)
+Requirement already satisfied: typing_extensions>=4.7.1 in /home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages (from onnx->onnxslim>=0.1.71) (4.15.0)
+Downloading onnxslim-0.1.93-py3-none-any.whl (238 kB)
+Downloading onnxruntime-1.23.2-cp310-cp310-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (15.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.2/15.2 MB 184.4 kB/s  0:01:20
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading coloredlogs-15.0.1-py2.py3-none-any.whl (46 kB)
+Downloading humanfriendly-10.0-py2.py3-none-any.whl (86 kB)
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Installing collected packages: flatbuffers, humanfriendly, colorama, coloredlogs, onnxslim, onnxruntime
+
+Successfully installed colorama-0.4.6 coloredlogs-15.0.1 flatbuffers-25.12.19 humanfriendly-10.0 onnxruntime-1.23.2 onnxslim-0.1.93
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+requirements: AutoUpdate success ✅ 97.9s
+WARNING ⚠️ requirements: Restart runtime or rerun command for updates to take effect
+
+
+ONNX: starting export with onnx 1.20.1 opset 11...
+/home/stephen/miniconda3/envs/genpose2/lib/python3.10/site-packages/torch/onnx/symbolic_opset9.py:5856: UserWarning: Exporting aten::index operator of advanced indexing in opset 11 is achieved by combination of multiple ONNX operators, including Reshape, Transpose, Concat, and Gather. If indices include negative values, the exported graph will produce incorrect results.
+  warnings.warn(
+ONNX: slimming with onnxslim 0.1.93...
+onnxruntime cpuid_info warning: Unknown CPU vendor. cpuinfo_vendor value: 15
+ONNX: export success ✅ 115.2s, saved as 'yolov10m.onnx' (58.9 MB)
+
+Export complete (128.6s)
+Results saved to /home/stephen/01-code/Orange/yolo/yolov10m.onnx
+Predict:         yolo predict task=detect model=yolov10m.onnx imgsz=640
+Validate:        yolo val task=detect model=yolov10m.onnx imgsz=640 data=None
+Visualize:       https://netron.app
+💡 Learn more at https://docs.ultralytics.com/modes/export

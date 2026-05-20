@@ -1,0 +1,91 @@
+
+root@orangepi:~# curl -w "\ntime_total=%{time_total}\n" -H "Accept: application/json" -H "Content-type: appl
+ication/json" -X POST -d '{ "inputs": "I love Beijing, because", "stream": false
+}' http://127.0.0.1:1025/generate
+
+time_total=0.000985
+
+root@orangepi:~#
+root@orangepi:~# ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 20:22 pts/5    00:00:00 /bin/bash
+root         333       0  0 20:44 pts/6    00:00:00 bash
+root         962       0  0 20:56 pts/7    00:00:00 bash
+root        5820     333  7 21:09 pts/6    00:00:11 ./bin/mindieservice_daemon
+root        5877    5820 70 21:09 pts/6    00:01:39 /usr/bin/python3.10 /usr/local/bin/mindie_llm_backend --local_rank 0 --local_world_size 1 --npu_num_per_dp 1 --npu_device_id 0 --parent_pid 5820 --shm_name_prefix /5820_0
+root        6015    5877  0 21:09 pts/6    00:00:00 /usr/bin/python3.10 -c from multiprocessing.resource_tracker import main;main(16)
+root        6199    5877  0 21:09 pts/6    00:00:00 /usr/bin/python3.10 /usr/local/bin/mindie_llm_backend --local_rank 0 --local_world_size 1 --npu_num_per_dp 1 --npu_device_id 0 --parent_pid 5820 --shm_name_prefix /5820_0
+root        6254    5877  0 21:09 pts/6    00:00:00 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6255    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6256    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6257    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6258    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6259    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6260    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6261    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6262    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6263    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6273    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6274    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6275    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6276    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6277    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6278    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6279    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        6280    6254  5 21:09 pts/6    00:00:06 /usr/bin/python3.10 -c from multiprocessing.forkserver import main; main(39, 41, [], **{})
+root        7111    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7112    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7113    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7114    5820 22 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7115    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7116    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7117    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7118    5820 23 21:10 pts/6    00:00:15 ./bin/mindieservice_daemon
+root        7253    7114  0 21:10 pts/6    00:00:00 ./bin/mindieservice_daemon
+root       10723     962  0 21:11 pts/7    00:00:00 ps -ef
+
+root@orangepi:/usr/local/Ascend/mindie/latest/mindie-service# ./bin/mindieservice_daemon
+g_mainPid = 5820
+LogLevelDynamicHandler start
+The old environment variable MINDIE_LLM_LOG_LEVEL will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_LEVEL as soon as possible.
+The old environment variable MINDIE_LLM_PYTHON_LOG_TO_STDOUT will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_TO_STDOUT as soon as possible.
+The old environment variable MINDIE_LLM_LOG_TO_STDOUT will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_TO_STDOUT as soon as possible.
+The old environment variable MINDIE_LLM_PYTHON_LOG_PATH will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_PATH as soon as possible.
+The old environment variable MINDIE_LLM_PYTHON_LOG_LEVEL will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_LEVEL as soon as possible.
+The old environment variable MINDIE_LLM_PYTHON_LOG_TO_FILE will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_TO_FILE as soon as possible.
+The old environment variable MINDIE_LLM_LOG_TO_FILE will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_TO_FILE as soon as possible.
+The old environment variable OCK_LOG_LEVEL will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_LEVEL as soon as possible.
+The old environment variable OCK_LOG_TO_STDOUT will be deprecated on 2025/12/31. Please use the new environment variable MINDIE_LOG_TO_STDOUT as soon as possible.
+ConfigManager: Load Config from /usr/local/Ascend/mindie/2.3.0/mindie-service/conf/config.json.
+The configName speculationGamma is not found, use default value.
+[ConfigManager::ExecuteConfigInteractions] Configuration interactions completed successfully
+[ConfigManager::InitConfigManager] Successfully init config manager
+2026-05-19 21:09:28 [WARN]  Cannot GetRealPath
+2026-05-19 21:09:28 [WARN]  Path length is ilegal
+2026-05-19 21:09:28 [WARN]  CheckFileBeforeRead faild, path: /usr/local/Ascend/driver/lib64/driver/libdcmi.so
+[msservice_profiler] [PID:5820] [WARNING] [NpuMemoryUsage:19] libdcmi.so security check faild.
+[msservice_profiler] [PID:5820] [WARNING] [NpuMemoryUsage:26] Failed to dlopen libdcmi.so. Will be not able to get NPU usage data. Check whether a NPU server or if NPU driver installed.
+path string is NULLpath string is NULL2026-05-19 21:09:38 [WARN]  Cannot GetRealPath
+2026-05-19 21:09:38 [WARN]  Path length is ilegal
+2026-05-19 21:09:38 [WARN]  CheckFileBeforeRead faild, path: /usr/local/Ascend/driver/lib64/driver/libdcmi.so
+[msservice_profiler] [PID:5877] [WARNING] [NpuMemoryUsage:19] libdcmi.so security check faild.
+[msservice_profiler] [PID:5877] [WARNING] [NpuMemoryUsage:26] Failed to dlopen libdcmi.so. Will be not able to get NPU usage data. Check whether a NPU server or if NPU driver installed.
+LogLevelDynamicHandler start
+Loading selected layers: 100%|██████████| 36/36 [00:02<00:00, 16.65layer/s]
+LogLevelDynamicHandler start
+Daemon start success!
+
+
+            "ModelConfig" : [
+                {
+                    "modelInstanceType" : "Standard",
+                    "modelName" : "Qwen3-4B-W8A8",
+                    "modelWeightPath" : "/models/Qwen3-4B-W8A8",
+                    "worldSize" : 1,
+                    "cpuMemSize" : 5,
+                    "npuMemSize" : 8,
+                    "backendType" : "atb",
+                    "trustRemoteCode" : true,
+                    "async_scheduler_wait_time": 120,
+                    "kv_trans_timeout": 10,
+                    "kv_link_timeout": 1080
